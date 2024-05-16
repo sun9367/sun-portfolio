@@ -1,0 +1,25 @@
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .imgbox {
+    width: 80%;
+    margin: auto;
+  }
+
+  img {
+    width: 100%;
+    height: auto;
+  }
+
+
+  .motion {
+    position: fixed;
+    font-size: 3rem;
+    cursor: pointer;
+    color: #ffafad;
+    right: 20px;
+    bottom: 20px;
+  }
