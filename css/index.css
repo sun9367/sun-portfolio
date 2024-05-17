@@ -102,7 +102,7 @@ header ul li:hover::after {
   font-family: '세리프';
 }
 
-.maintext>h1:nth-child(1) {
+.maintext>h1 {
   font-size: 8rem;
   text-wrap: nowrap;
 }
@@ -499,12 +499,12 @@ textarea::placeholder {
   text-align: center;
 }
 
-.sns > ul {
-display: flex;
-color: #414144;
-gap: 30px;
-justify-content:center;
-font-size: 15px;
+.sns>ul {
+  display: flex;
+  color: #414144;
+  gap: 30px;
+  justify-content: center;
+  font-size: 15px;
 }
 
 .sns a {
@@ -570,7 +570,7 @@ footer {
     gap: 20px;
   }
 
-  .maintext>h1:nth-child(1) {
+  .maintext>h1 {
     font-size: 6rem;
   }
 
@@ -615,7 +615,7 @@ footer {
 
 /* 411 */
 @media screen and (max-width:411px) {
-  .maintext>h1:nth-child(1) {
+  .maintext>h1 {
     font-size: 4rem;
 
   }
@@ -667,7 +667,8 @@ footer {
   .words>span {
     font-size: 45px;
   }
-  .sns > ul {
+
+  .sns>ul {
     flex-direction: column;
     gap: 5px;
     text-align: left;
@@ -677,5 +678,5 @@ footer {
     font-size: 13px;
   }
 
-  
+
 }
