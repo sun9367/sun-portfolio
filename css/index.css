@@ -561,6 +561,10 @@ footer {
 
 /* 769 */
 @media screen and (max-width:769px) {
+  header ul {
+    font-size: 1.2rem;
+  }
+  
   .btn-secondary {
     width: 100%;
     margin: 5px auto;
