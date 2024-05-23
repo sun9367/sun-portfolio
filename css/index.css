@@ -22,12 +22,11 @@ a {
   color: inherit;
 }
 
-
 #container {
-  width: 100%;
-  overflow: hidden;
+  height: 100vh;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
 }
-
 
 /* 네비 */
 header {
@@ -83,6 +82,10 @@ header ul li:hover::after {
   opacity: 1;
 }
 
+section {
+  height: 100vh;
+  scroll-snap-align: start;
+}
 
 /* 메인 */
 #main {
@@ -125,6 +128,7 @@ header ul li:hover::after {
 }
 
 
+
 /*about me*/
 #about {
   display: flex;
@@ -134,11 +138,8 @@ header ul li:hover::after {
   padding: 3%;
 }
 
-
-
 #about>h1 {
   padding: 3%;
-  width: 100%;
   color: #384453;
   text-shadow: 0 0 10px #b2a7b2;
   font-size: 4rem;
@@ -148,32 +149,28 @@ header ul li:hover::after {
 .profile {
   display: flex;
   width: 80%;
-  height: 600px;
   margin: auto;
-  gap: 100px;
+  box-shadow: 0 0 2px #20202075;
 }
 
 .profile-img,
 .profile-my {
   padding: 3%;
-  margin: auto;
-  height: 600px;
+  flex: 1;
 }
 
 .profile-img {
-  width: 50%;
   position: relative;
+  overflow: hidden;
+  height: 600px;
 }
 
 .profile-img>img {
   position: absolute;
+  width: 1200px;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  max-width: 400px;
-  max-height: 600px;
-  object-fit: cover;
-  box-shadow: 2px 7px 15px 8px rgba(0, 0, 0, 0.3);
 }
 
 .profile-my {
@@ -182,13 +179,18 @@ header ul li:hover::after {
   justify-content: center;
 }
 
+.profile-my > h2 {
+  font-size: 1.2rem;
+  margin-top: 20px;
+}
+
 .myprofile {
   padding-left: 0;
-  font-size: 2rem;
+  font-size: 1.2rem;
 }
 
 .myprofile>li {
-  line-height: 60px;
+  line-height: 40px;
 }
 
 .myprofile>li>span,
@@ -196,7 +198,7 @@ header ul li:hover::after {
   display: inline-block;
   width: 60px;
   font-weight: bold;
-  margin-right: 60px;
+  margin-right: 20px;
 }
 
 /* 스킬로고 */
@@ -212,7 +214,7 @@ header ul li:hover::after {
 }
 
 .skill>p {
-  font-size: 2rem;
+  font-size: 1.2rem;
 }
 
 /* 스킬로고 애니메이션 자바스크립트로 연결 */
@@ -260,12 +262,6 @@ header ul li:hover::after {
   }
 }
 
-.profile-my>h2 {
-  margin-top: 30px;
-  font-weight: bold;
-  font-family: '카페24';
-}
-
 /* project */
 
 #project {
@@ -283,13 +279,19 @@ header ul li:hover::after {
   font-family: '세리프';
 }
 
+
 .projectBox {
   width: 80%;
   margin: auto;
   justify-content: space-between;
-  margin-bottom: 200px;
+  margin-bottom: 100px;
   display: flex;
   align-items: center;
+}
+
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  color: #384453;
 }
 
 .card {
@@ -303,6 +305,7 @@ header ul li:hover::after {
   max-height: 400px;
   padding: 5%;
   overflow: hidden;
+  position: relative;
 }
 
 .MORE {
@@ -310,13 +313,14 @@ header ul li:hover::after {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  padding: 3%;
+  padding: 2%;
   color: white;
   background-color: rgba(3, 3, 3, 0.452);
   border-radius: 10px;
   border: 1px solid silver;
   backdrop-filter: blur(20px);
   cursor: pointer;
+  font-size: 13px;
 }
 
 /*more호버시 생기는 스크롤바 디자인*/
@@ -359,7 +363,7 @@ header ul li:hover::after {
 
 .proText>div>h1 {
   text-align: center;
-  font-size: 5rem;
+  font-size: 3rem;
   font-weight: bold;
   margin-bottom: 50px;
   color: #202020;
@@ -381,7 +385,9 @@ header ul li:hover::after {
 }
 
 .proText>div>h2 {
-  margin-bottom: 30px;
+  margin-bottom: 20px;
+  font-weight: bold;
+  font-size: 20px;
 }
 
 .proText>div>h2>span {
@@ -394,6 +400,8 @@ header ul li:hover::after {
   font-size: 1.2rem;
   color: black;
 }
+
+
 
 
 @keyframes slide-in-right {
@@ -518,13 +526,27 @@ textarea::placeholder {
 
 footer {
   text-align: center;
-  color: darkgray;
+  color: #414144;
+  font-size: 13px;
+  scroll-snap-align: end;
 }
 
 
 /* 미디어쿼리 */
+
 /* 1599 */
 @media screen and (max-width:1599px) {
+  #container {
+    width: 100%;
+    height: auto;
+    overflow-y:auto;
+    scroll-snap-type:none;
+  }
+
+  section {
+    height: auto;
+  }
+
   .projectBox {
     flex-direction: column;
   }
@@ -534,27 +556,25 @@ footer {
     padding-left: 0px;
   }
 
-  .profile {
-    flex-direction: column;
-    height: auto;
-  }
-
-  .profile-img>img {
-    max-width: 300px;
-    max-height: 500px;
-  }
-
-  .profile-img {
-    height: 300px;
-    margin: 100px auto;
-  }
 }
 
 /* 1050 */
 @media screen and (max-width:1050px) {
+  .profile {
+    flex-direction: column;
+  }
+
+.profile-img,
+.profile-my {
+  flex: none;
+}
+
+.profile-my {
+  justify-content: start;
+}
 
   .formbox {
-    flex-direction: column;
+  flex-direction: column;
   }
 
 }
@@ -578,38 +598,38 @@ footer {
     font-size: 6rem;
   }
 
-  .myprofile {
-    font-size: 1.5rem;
-  }
-
-  .skill>p {
-    font-size: 1.5rem;
-  }
-
-  .myprofile>li>span,
-  .skill>p {
-    margin-right: 30px;
-  }
-
-  .profile-my>h2 {
-    font-size: 1.5rem;
-  }
-
-  .projectBox {
-    margin-bottom: 100px;
-  }
-
   .proText>div>h1 {
-    font-size: 3rem;
+    font-size: 2rem;
+    margin-bottom: 20px;
   }
+
 
   .proText>div>h2 {
-    font-size: 1.3rem;
+    font-size: 1rem;
   }
 
   .proText>div>p {
-    font-size: 1rem;
+    font-size: .8rem;
     color: black;
+  }
+
+  .projectBox {
+    margin-bottom: 30px;
+  }
+
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.card {
+  height: 350px;
+}
+
+
+  .cardimg {
+    height: 300px;
   }
 
   .sns span {
@@ -634,6 +654,14 @@ footer {
 
   .profile {
     gap: 0px;
+  }
+
+  .profile-img {
+    height: 400px;
+  }
+
+  .profile-img>img {
+    width: 900px;
   }
 
   .skill>p {
@@ -662,6 +690,10 @@ footer {
     color: black;
   }
 
+  .cardimg {
+    height: 200px;
+  }
+
   #contact>h1,
   #project>h1,
   #about>h1 {
@@ -681,6 +713,7 @@ footer {
   .sns i {
     font-size: 13px;
   }
+
 
 
 }

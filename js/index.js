@@ -90,7 +90,6 @@ const animateInfor = (e) => {
   e.forEach(a => {
     if (a.isIntersecting) {
       a.target.style.animation = 'slide-in-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both';
-      a.target.style.animationDelay = '1s';
     }
   })
 }
@@ -119,7 +118,6 @@ window.addEventListener('scroll', () => {
     const bounding = e.getBoundingClientRect();
     if (bounding.top < window.innerHeight && bounding.bottom >= 0) {
       e.style.animation = 'slide-in-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both';
-      a.target.style.animationDelay = '1s';
     } else {
       e.style.animation = 'none'; // 뷰포트에 없을때 애니메이션 중지
     }
@@ -171,6 +169,22 @@ function sendMail() {
     )
     .catch((err)=> console.log(err));
 }
+
+
+  // Initialize Swiper
+    var swiper = new Swiper(".mySwiper", {
+      slidesPerView: 1,
+      spaceBetween: 30,
+      loop: true,
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+    });
 
 
 
